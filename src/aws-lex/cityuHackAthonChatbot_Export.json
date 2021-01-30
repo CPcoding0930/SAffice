@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "cityuHackAthonChatbot",
+    "version": "2",
+    "intents": [
+      {
+        "name": "getCasesToday",
+        "version": "2",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:280167511205:function:cityu-hackathon21-getCase",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "Cases Today",
+          "Today Case",
+          "Case",
+          "Today"
+        ],
+        "slots": []
+      },
+      {
+        "name": "getCheckIn",
+        "version": "1",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:280167511205:function:cityu-hackathon21-getCheckIn",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "check-in {userID}",
+          "check in {userID}",
+          "{Date} {userID}",
+          "check in {Date} {userID}",
+          "{userID}"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.DATE",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What is the Date?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "Date"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What is your user Id ?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "userID"
+          }
+        ]
+      },
+      {
+        "name": "getStaffCheckIn",
+        "version": "1",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:280167511205:function:cityu-hackathon21-getCheckInList",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "People checked-in",
+          "People"
+        ],
+        "slots": []
+      },
+      {
+        "name": "getHygieneHints",
+        "version": "2",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Hygiene hints",
+          "Hints",
+          "hint"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "{\"response\": \"Facility owner should consider checking temperature for visitors and deny entry of those with fever.\"}"
+            },
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "{\"response\": \"Reduce social contact to protect yourself and others.\"}"
+            },
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "{\"response\": \"Avoid crowds, social gatherings, meal gatherings.\"}"
+            },
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "{\"response\": \"Check body temperature regularly.\"}"
+            },
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "{\"response\": \"Wash your hands thoroughly with soap and water for at least 20 seconds before preparing any food.\"}"
+            }
+          ]
+        }
+      }
+    ],
+    "voiceId": "0",
+    "childDirected": true,
+    "locale": "en-GB",
+    "idleSessionTTLInSeconds": 300,
+    "clarificationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "{\"response\": \"Sorry, can you please repeat that?\"}"
+        }
+      ],
+      "maxAttempts": 5
+    },
+    "abortStatement": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "{\"response\": \"Sorry, I could not understand.\"}"
+        }
+      ]
+    },
+    "detectSentiment": false,
+    "enableModelImprovements": true
+  }
+}
