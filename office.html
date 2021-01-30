@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SAffice - Office</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='js/sessionChecking.js'></script>
+    <script>
+        sessionChecking();
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="chatbot.css">
+</head>
+<body>
+    <div class="row">
+        <!--Side Menu Bar-->
+        <div class="column side">
+            <div class="dropdown">
+                <button class="dropbtn"><img src="Menu/Menu-1.png" style="width: 90%" alt="Menu"></button>
+                <div class="dropdown-content">
+                    <a href="office.html">Office Mode</a>
+                    <a href="wfh.html">WFH Mode</a>
+                </div>
+            </div>
+            
+            <br /><br /><br /><br />
+           <a href="user-Office.html"><img src="Menu/menu-2.png" style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto; "alt="Menu"></a> <br /><br />
+           <a href="mask-Office.html"><img src="Menu/menu-3.png" style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto;" alt="Menu"></a><br /><br />
+           <a href="distance.html"><img src="Menu/menu-4.png" style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto;" alt="Menu"></a><br /><br />
+           <a href="setting-Office.html"><img src="Menu/menu-5.png" style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto;" alt="Menu"></a>
+</div>
+       
+        <div class="column middle">
+            <ul>
+               <li><img src="img/sa_crop.gif" style="height: 70px"alt="Logo"></li> 
+                <li><a href="-Office.html">Face Mask Detection</a></li>
+                <li><a href="distance.html">Social Distance Detection</a></li>
+            </ul>
+            <br /><h1 class="header">You are now at OFFICE mode</h1><br />
+        
+        </div>
+
+        <div class="column right">
+            <ul>
+                <li style="float:right"><img src="img/user.png" style="width:85%; float:right;" alt="User"></li> 
+            </ul>
+            <table>
+                <tr>
+                    <th>Work Schedule</th>
+                </tr>
+                <tr>
+                    <th><img src="img/schedule.png" style="width:100%" alt="schedule"></th>
+                </tr>
+                <tr>
+                    <th>Chat Room</th>
+                </tr>
+                <tr>
+                    <!--Chat Room Area-->
+                    <th>
+                        <section id="chat-container">
+                            <div class="rowchats">
+                                <div class="chats column sys">
+                                    <img src="img/system.png" class="systemimg" />
+                                </div>
+                                <div class="chats column conv">
+                                    <div class="box sys sb1">Hi, Angela. <br /> Welcome to SAffice:) .</div>
+                                </div>
+                                <div class="chats column user">
+                                </div>
+                            </div>
+
+                            <div class="rowchats">
+                                <div class="chats column sys">
+                                </div>
+                                <div class="chats column conv">
+                                    <div class="box user sb2">Hi, SAffice ! .</div>
+                                </div>
+                                <div class="chats column user">
+                                    <img src="img/profilepic.png" class="userimg" />
+                                </div>
+                            </div>
+
+                        </section>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <section id="chat-footer">
+                            <div class="rowchats">
+                                <div class="chats column emoji">
+                                    <img src="img/emoji.png" class="systemimg" />
+                                </div>
+                                <div class="chats column input">
+                                    <input type="text" id="message"
+                                           placeholder="Type your message here..." value="">
+                                </div>
+                                <div class="chats column submit">
+                                    <input type="image" src="img/submit.png" class="systemimg" />
+                                </div>
+                                <div class="chats column audio">
+                                    <input type="image" src="img/audio.png" class="systemimg" />
+                                </div>
+                            </div>
+                        </section>
+                    </th>
+                </tr>
+            </table>
+            
+         </div>
+    </div>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

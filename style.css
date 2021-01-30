@@ -1,0 +1,535 @@
+﻿        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1.header {
+            text-align: center;
+            color: #66F3ED;
+        }
+
+        body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #808080;
+            height: 70px;
+            font-size: 18px;
+        }
+        li {
+            float: left;
+            height: 70px;
+        }
+        li:last-child {
+                border-bottom: none;
+            }
+        li a {
+                display: block;
+                color: #66f3ed;
+                text-align: center;
+                padding: 23px 60px;
+                text-decoration: none;
+            }
+        li a:hover:not(.active) {
+             background-color: #111;
+        }
+
+        .active {
+            background-color: #808080;
+            border-bottom: 5px solid #66f3ed;
+        }
+
+        /* Create three unequal columns that floats next to each other */
+        .column {
+            float: left;
+            height: 700px;
+        }
+        /* Left and right column */
+        .column.side {
+                width: 7%;
+                background-color: #919191;
+                overflow: hidden;
+                z-index:2;
+        }
+        /* Middle column */
+        .column.middle {
+            width: 68%;
+            background-color: #777777;
+            z-index:1;
+        }
+        /* Middle column for Home*/
+        .column.middleHome {
+            width: 93%;
+            background-color: #777777;
+            z-index:1;
+        }
+        .column.right {
+            width: 25%;
+            background-color: #919191;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        a:hover{
+            color: white;
+            text-decoration: none;
+        }
+        h4{
+            color: #66F3ED;
+        }
+
+ /*Drop down Menu*/
+ .dropbtn {
+  background-color: transparent;
+  color: #66F3ED;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  display: inline-block;
+  z-index: 10!important;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #919191;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  left:7%;
+  top:10%;
+  }
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+
+}
+.dropdown-content a:hover {background-color: #777777;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: transparent;}
+table, th, td {
+  border: 2px solid white;
+  border-collapse: collapse;
+  color:#66F3ED;
+  width:100%;
+  font-size:20px;
+  padding: 4px;
+  background-color: #848484;
+}
+
+#table_chat{
+    border-color: black;
+}
+.img_msg{
+
+}
+
+/*Log-in*/
+#loginform {
+    width: 60%;
+    height: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=button] {
+    background-color: #66F3ED;
+    color: #777777;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+    input[type=button]:hover {
+        opacity: 0.6;
+    }
+
+label {
+    color: white;
+}
+
+#maskDetection{
+    width: 80%;
+    height: 60%;
+    background-color:black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.maskDetectionMain{
+    height: 350px;
+    background-color:grey;
+    position: relative;
+}
+
+.maskDetectionBar{
+    background-color:black;
+    height: 70px;
+}
+
+#socialDistance{
+    width: 80%;
+    height: 60%;
+    background-color:black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.socialDistanceMain{
+    width:70%;
+    height: 350px;
+    background-color:grey;
+    position: relative;
+}
+
+.socialDistanceMain video, .socialDistanceMain canvas, .maskDetectionMain video, .maskDetectionMain canvas, .faceid-selection-image video{
+    display: none;
+}
+
+.maskDetectionMain img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+}
+
+.socialDistanceMain img, .loader {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #66F3ED; /* Blue */
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.socialDistanceSide{
+  width:30%;
+  height: 350px;
+  background-color:white;
+  overflow-y: scroll;
+  padding: 30px;
+  position: relative;
+}
+
+.socialDistanceBar{
+    background-color:black;
+    height: 70px;
+}
+
+h3.header2{
+    display: block;
+    margin-left: 100px;
+    color: white;
+
+}
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column.middle, .column.right {
+                width: 100%;
+            }
+        }
+
+
+.settings{
+    width: 100%;
+    display: block;
+}
+
+.setting-container{
+    cursor:pointer;
+}
+
+.setting-list{
+    padding: 0 30px 0 30px;
+}
+
+.setting-title, .faceid-selection-image{
+    color: #66F3ED;
+}
+
+.setting-title h4{
+    margin: 10px 0 10px 0;
+}
+
+.setting-item{
+    background-color: #848484;
+    padding: 5px 20px 10px 20px;
+    border-bottom: #FFF 2px solid
+}
+
+.setting{
+    color: white;
+}
+
+.setting h4{
+    line-height: 0;
+}
+
+.setting span{
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.first{
+    border-radius: 8px 8px 0 0;
+}
+
+.last{
+    border-radius: 0 0 8px 8px ;
+    border-bottom:none;
+}
+
+.single{
+    border-radius: 8px 8px 8px 8px ;
+}
+
+.faceid-selection-image img{
+    max-width: 35%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.faceid-selection-image{
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+
+.faceid-selection, .checkin-selection{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 50px;
+}
+
+.checkin-selection{
+    display: none;
+}
+
+.faceid-selection-button{
+    flex-direction: row;
+    background-color: #808080;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.faceid-detcet-desc {
+    color: #66F3ED;
+    font-size: x-large;
+    text-align: center;
+}
+
+
+.socialDistanceSide img{
+    width: 100%;
+    display: block;
+}
+
+.social-distance-side-item-title{
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    padding: 4px;
+    color: white;
+    width: 100%;
+    display: block;
+    background-color: black;
+    opacity: 0.7;
+}
+
+.social-distance-side-item-title span{
+    color: white;
+}
+
+.socail-distance-side-item{
+    position: relative;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.login-container{
+    display: flex;
+    padding: 0 50px 0 50px;
+    height: 100vh;
+    background-color: gray;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.login-poster-container{
+    position: relative;
+    height: 100%;
+}
+
+.login-poster img{
+    max-height: 100vh;
+}
+
+.login-form-container{
+    padding: 20px;
+    display: inline-block;
+}
+
+.login-form-content{
+    padding: 0 30px 0 30px ;
+}
+
+.login-icon{
+    margin-bottom: 30px;
+    padding: 80px 80 0px 80px;
+}
+
+.login-icon img{
+    max-width: 50%;
+    left: 25%;
+    position: relative;
+}
+
+
+.login-input{
+    display: flex;
+    background-color:#919191;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+.login-input-icon{
+    padding: 10px;
+    width: 25%;
+}
+
+.login-input-icon img{
+    width: 7vh;
+}
+
+.login-input-field{
+    width: 60% !important;
+    display: inline-block;
+    border: none!important;
+    background-color: #919191;
+    color: white;
+    font-size:larger;
+    padding-left: 10px!important;
+}
+
+
+.login-input-field::placeholder{
+    color: white;
+}
+
+.login-input-field:focus{
+    outline: none;
+}
+
+.login-input-submit{
+    position: relative;
+    bottom: 0;
+}
+
+.login-input-submit{
+    position: absolute;
+    bottom: 30px;
+    right: -50px;
+}
+
+.login-input-submit img{
+    cursor: pointer;
+}
+
+.mode-content{
+    text-align: center;
+    color: #929292;
+}
+
+
+.mode-content h4{
+    color: #929292;
+}
+
+.mode-content h1{
+    color: #74e4e2
+}
+
+.mode-selection{
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+
+.mode-item{
+    padding: 10px;
+}
+
+.mode-item img{
+    max-width: 50%;
+}
+
+.login-input-logout{
+    position: absolute;
+    bottom: 30px;
+    left: -50px;
+}
+
+.login-input-logout image{
+    cursor: pointer;
+}

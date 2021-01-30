@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SAffice- Social Distance</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="chatbot.css">
+    <script src='js/sessionChecking.js'></script>
+    <script>
+        sessionChecking();
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <!--Side Menu Bar-->
+        <div class="column side">
+            <div class="dropdown">
+                <button class="dropbtn"><img src="Menu/Menu-1.png" style="width: 90%" alt="Menu"></button>
+                <div class="dropdown-content">
+                    <a href="office.html">Office Mode</a>
+                    <a href="wfh.html">WFH Mode</a>
+                </div>
+            </div>
+
+            <br /><br /><br /><br />
+            <a href="user-Office.html"><img src="Menu/menu-2.png"
+                    style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto; " alt="Menu"></a>
+            <br /><br />
+            <a href="mask-Office.html"><img src="Menu/menu-3.png"
+                    style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto;"
+                    alt="Menu"></a><br /><br />
+            <a href="distance.html"><img src="Menu/menu-4.png"
+                    style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto;"
+                    alt="Menu"></a><br /><br />
+            <a href="setting-Office.html"><img src="Menu/menu-5.png"
+                    style="width: 60%;   display: block;  margin-left: auto;  margin-right: auto;" alt="Menu"></a>
+        </div>
+
+        <div class="column middle">
+            <ul>
+                <li><img src="img/sa_crop.gif" style="height: 70px" alt="Logo"></li>
+                <li><a href="mask-Office.html">Face Mask Detection</a></li>
+                <li><a class="active" href="distance.html">Social Distance Detection</a></li>
+            </ul>
+            <br />
+            <h1 class="header">Social Distance Detection</h1>
+            <h3 class="header2">
+                Please keep social distance in the office! <br /><br />
+                System will infrom you when your distance is too close to others!
+            </h3>
+
+            <!--Distance Area-->
+            <div id="maskDetection">
+                <div class="row">
+                    <div class="column socialDistanceMain">
+                        <div class="loader"></div>
+                        <video width="" height="" id="webcam" autoplay muted controls loop>
+                            <source src="sample-video/test-1.mp4" type="video/mp4">
+                        </video>
+                        <canvas width="" height="" id="detect_result"></canvas>
+                        <img src="" id="detect_result_base64">
+                    </div>
+                    <div class="column socialDistanceSide">
+                        <div class="socail-distance-side-item" onclick="changeVideo(this)">
+                            <img src="sample-video/test-1.jpg">
+                            <div class="social-distance-side-item-title">
+                                <span>Camera 1</span>
+                            </div>
+                        </div>
+                        <div class="socail-distance-side-item" onclick="changeVideo(this)">
+                            <img src="sample-video/test-2.jpg">
+                            <div class="social-distance-side-item-title">
+                                <span>Camera 2</span>
+                            </div>
+                        </div>
+                        <div class="socail-distance-side-item" onclick="changeVideo(this)">
+                            <img src="sample-video/test-3.jpg">
+                            <div class="social-distance-side-item-title">
+                                <span>Camera 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="socialDistanceBar">
+                </div>
+            </div>
+            <!--Distance Area-->
+        </div>
+        <div class="column right">
+            <ul>
+                <li style="float:right"><img src="img/user.png" style="width:85%; float:right;" alt="User"></li>
+            </ul>
+            <table>
+                <tr>
+                    <th>Work Schedule</th>
+                </tr>
+                <tr>
+                    <th><img src="img/schedule.png" style="width:100%" alt="schedule"></th>
+                </tr>
+                <tr>
+                    <th>Chat Room</th>
+                </tr>
+                <tr>
+                    <!--Chat Room Area-->
+                    <th>
+                        <section id="chat-container">
+                            <div class="rowchats">
+                                <div class="chats column sys">
+                                    <img src="img/system.png" class="systemimg" />
+                                </div>
+                                <div class="chats column conv">
+                                    <div class="box sys sb1">Hi, Angela. <br /> Welcome to SAffice:) .</div>
+                                </div>
+                                <div class="chats column user">
+                                </div>
+                            </div>
+
+                            <div class="rowchats">
+                                <div class="chats column sys">
+                                </div>
+                                <div class="chats column conv">
+                                    <div class="box user sb2">Hi, SAffice ! .</div>
+                                </div>
+                                <div class="chats column user">
+                                    <img src="img/profilepic.png" class="userimg" />
+                                </div>
+                            </div>
+
+                        </section>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <section id="chat-footer">
+                            <div class="rowchats">
+                                <div class="chats column emoji">
+                                    <img src="img/emoji.png" class="systemimg" />
+                                </div>
+                                <div class="chats column input">
+                                    <input type="text" id="message"
+                                           placeholder="Type your message here..." value="">
+                                </div>
+                                <div class="chats column submit">
+                                    <input type="image" src="img/submit.png" class="systemimg" />
+                                </div>
+                                <div class="chats column audio">
+                                    <input type="image" src="img/audio.png" class="systemimg" />
+                                </div>
+                            </div>
+                        </section>
+                    </th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="js/webcam.js"></script>
+    <script src="js/social-distance-detect.js"></script>
+    <script src="js/changeVideo.js"></script>
+    <script>
+      const loader = document.getElementsByClassName("loader");
+      const canvas = document.getElementById('detect_result');
+      const webcamElement = document.getElementById('webcam');
+      const canvasToImage = document.getElementById('detect_result_base64');
+      const source = document.getElementsByTagName('source')[0];
+
+      let model = null;
+      let change = false;
+      let setup = async () => {
+          model = await loadModel();
+          console.log(source);
+          loader[0].style.display = "none";
+          //resizeCanvas(webcamElement.videoWidth, webcamElement.videoHeight);
+          //resizeVideo(webcamElement.videoWidth, webcamElement.videoHeight);
+          detectWebCam();
+          /*setupWebcam().then(
+              () => {
+                  detectWebCam();
+              }).catch(
+                  (err) => {
+                      console.log(err);
+                  }
+              );
+          }*/
+      }
+
+      webcamElement.addEventListener('loadeddata', function () {
+          if (webcamElement.readyState === 4) {
+              resizeCanvas(webcamElement.videoWidth, webcamElement.videoHeight);
+              resizeVideo(webcamElement.videoWidth, webcamElement.videoHeight);
+              webcamElement.play();
+          }
+
+      })
+      setup();
+    </script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

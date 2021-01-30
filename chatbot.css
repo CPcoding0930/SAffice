@@ -1,0 +1,129 @@
+﻿#chat-container{
+    background-color:#919191;
+    height:270px;
+    font-size:12px;
+    overflow-y: scroll;
+}
+
+#chat-footer {
+    background-color: #777777;
+    height: 50px;
+}
+
+.chats.column {
+    float: left;
+    height: 50px;
+    background-color:#919191;
+    width:100%;
+}
+.chats.column.sys {
+    width: 20%;
+    background-color: #919191;
+}
+.systemimg {
+    max-width:70%
+}
+.chats.column.conv {
+    width: 60%;
+    background-color: #919191;
+    margin-bottom: 10px;
+    height: auto;
+}
+.userimg {
+    max-width: 70%
+}
+.chats.column.user {
+    width: 20%;
+    background-color: #919191;
+}
+
+.chats.column.emoji {
+    width: 15%;
+    background-color: #777777;
+}
+.chats.column.audio {
+    width: 15%;
+    background-color: #777777;
+}
+.chats.column.submit {
+    width: 15%;
+    background-color: #777777;
+}
+.chats.column.input {
+    width: 55%;
+    background-color: #777777;
+}
+
+.rowchats:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.box.sys {
+    border-radius: 10px;
+    background: #777777;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    position: relative;
+    font-weight:bold;
+}
+.box.user {
+    border-radius: 10px;
+    background: #66F3ED;
+    color: #777777;
+    padding: 10px;
+    text-align: right;
+    position: relative;
+    font-weight: bold;
+}
+.sb2:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #66F3ED;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #66F3ED;
+    border-bottom: 10px solid transparent;
+    right: -15px;
+    top: 8px;
+}
+
+.sb1:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #777777;
+    border-top: 10px solid #777777;
+    border-bottom: 10px solid transparent;
+    left: -15px;
+    top: 8px;
+}
+
+.chats {
+    padding: 5px 5px 5px 5px;
+}
+
+#message {
+    background-color: transparent;
+    width: 100%;
+    border-color: transparent;
+    padding: 5px 5px 0px 5px;
+}
+
+::placeholder{
+color:white;
+}
+
+.chats input{
+    color: white;
+}
+
+.sb1 table th, .sb1 table td{
+    font-size: small;
+    color: white;
+}

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SAffice - Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="mode">
+        </div>
+        <div class="login-poster-container">
+            <div class="login-poster">
+                <img src="img/traditional.png">
+            </div>
+
+            <div class="login-input-submit">
+                <img src="icon/submit.png"/>
+            </div>
+        </div>
+
+
+        <div class="login-form-container">
+            <div class="login-icon">
+                <img src="img/logo.png">
+            </div>
+
+            <div class="login-form-content">
+                <div class="login-input input-username">
+                    <div class="login-input-icon">
+                        <img src="icon/user.png">
+                    </div>
+
+                    <input type="text" name="username" id="username" class="login-input-field" placeholder="User ID">
+                </div>
+                <div class="login-input input-password">
+                    <div class="login-input-icon">
+                        <img src="icon/pwd.png">
+                    </div>
+                    <input type="password" name="password" id="password" class="login-input-field"
+                        placeholder="Password">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+
+        const submit = document.getElementsByClassName('login-input-submit')[0];
+
+        submit.addEventListener('click', () => {
+            let http = new XMLHttpRequest();
+            const url = 'https://w65ccii120.execute-api.us-east-1.amazonaws.com/v1/login';
+            const params = {
+                userId: document.getElementById("username").value,
+                password: document.getElementById("password").value
+            };
+            http.open('POST', url, true);
+            http.setRequestHeader('Content-type', 'application/json');
+            http.onreadystatechange = () => {
+                if (http.readyState == 4 && http.status == 200) {
+                    jsonObj = JSON.parse(http.responseText);
+                    console.log(jsonObj);
+                    if (jsonObj.vaild) {
+                        localStorage.setItem("userId", jsonObj.userId);
+                        //console.log(localStorage.getItem("userId"));
+                        document.getElementsByClassName('login-container')[0].style.backgroundColor = "white"
+                        document.getElementsByClassName("login-form-container")[0].innerHTML = "";
+                        document.getElementsByClassName("mode")[0].innerHTML = '<div class="login-icon"><img src="img/logo.png"></div><div class="mode-content"><h1>Welcome</h1><h2>Please choose the mode!</h2><div class="mode-selection"><div class="mode-item"><a href="user-Office.html"><img src="Menu/Menu-1.png"></a><h6>Office Mode</h6></div><div class="mode-item"><a href="user-Home.html"><img src="Menu/home.png"></a><h6>WFH Mode</h6></div></div></div>'
+                        document.getElementsByClassName('login-poster')[0].children[0].src = "img/saffice.png";
+                        submit.className = "login-input-logout";
+                        submit.children[0].src = "icon/logout.png"
+                        delete submit;
+                        submit.removeEventListener('click', this);
+                        setListener();
+                    }else{
+                        alert("username or password incorrect")
+                    }
+                }
+            }
+
+            http.send(JSON.stringify(params));
+        });
+
+        const setListener = () => {
+            document.getElementsByClassName("login-input-logout")[0].addEventListener("click", () => {
+                logout();
+            })
+        }
+
+        const logout = () => {
+            localStorage.removeItem("userId");
+            window.location.replace("login.html");
+        }
+    </script>
+</body>
+
+</html>
